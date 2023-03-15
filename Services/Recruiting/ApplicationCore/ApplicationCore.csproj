@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\Entities\" />
-    <Folder Include="Contracts\Exceptions\" />
-    <Folder Include="Contracts\Models\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
