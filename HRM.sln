@@ -11,11 +11,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interviews", "Interviews", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OnBoarding", "OnBoarding", "{12B05556-3068-4F3A-8E88-0CC936B95781}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitingWeb", "Services\Recruiting\RecruitingWeb\RecruitingWeb.csproj", "{0E296903-CB23-492C-B376-D5BC99A9D31B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecruitingWeb", "Services\Recruiting\RecruitingWeb\RecruitingWeb.csproj", "{0E296903-CB23-492C-B376-D5BC99A9D31B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationCore", "Services\Recruiting\ApplicationCore\ApplicationCore.csproj", "{845A5A09-03A2-498D-A217-F8B4EB7AB97B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationCore", "Services\Recruiting\ApplicationCore\ApplicationCore.csproj", "{845A5A09-03A2-498D-A217-F8B4EB7AB97B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Services\Recruiting\Infrastructure\Infrastructure.csproj", "{C615B96C-68CA-4434-A1D3-260025BB79C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Services\Recruiting\Infrastructure\Infrastructure.csproj", "{C615B96C-68CA-4434-A1D3-260025BB79C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4917ECE7-846C-4D93-937B-AD35BE0E897E}"
+	ProjectSection(SolutionItems) = preProject
+		Notes.txt = Notes.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

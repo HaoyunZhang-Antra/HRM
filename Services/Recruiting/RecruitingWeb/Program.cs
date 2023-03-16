@@ -1,7 +1,16 @@
+using ApplicationCore.Contracts.Services;
+using Infrastructure.Data;
+using Infrastructure.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IJobService, JobsMongoDbService>();
+
+//Inject our Connectionstring into DbContext
+builder.Services.AddDbContext<RecruitingDbContext>( options => options.UseSqlServer( builder.Configuration.GetConnectionString("RecruitingDbConnection") ) );
 
 var app = builder.Build();
 
