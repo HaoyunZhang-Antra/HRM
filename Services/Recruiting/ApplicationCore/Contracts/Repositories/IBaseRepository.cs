@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.Contracts.Repositories
 {
-    public interface IRepository
+    public interface IBaseRepository<T> where T : class
     {
+
     }
 }

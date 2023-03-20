@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {
-    public class Repository : IRepository
-    {
-    }
+    //public class Repository : IBaseRepository
+    //{
+    //}
 }

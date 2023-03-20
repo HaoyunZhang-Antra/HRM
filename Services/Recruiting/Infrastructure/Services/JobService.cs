@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Contracts.Services;
+﻿using ApplicationCore.Contracts.Repositories;
+using ApplicationCore.Contracts.Services;
 using ApplicationCore.Models;
 using System;
 using System.Collections.Generic;
@@ -10,23 +11,41 @@ namespace Infrastructure.Services
 {
     public class JobService : IJobService
     {
-        public List<JobResponseModel> GetAllJobs()
+        private readonly IJobRepository _jobRepository;
+        public JobService(IJobRepository jobRepository)
         {
-            //have some dummy data
-            var jobs = new List<JobResponseModel>()
-            {
-                new JobResponseModel{ Id = 1, Title = "Job1", Description = "This is Job1 Description."},
-                new JobResponseModel{ Id = 2, Title = "Job2", Description = "This is Job2 Description."},
-                new JobResponseModel{ Id = 3, Title = "Job3", Description = "This is Job3 Description."},
-                new JobResponseModel{ Id = 4, Title = "Job4", Description = "This is Job4 Description."},
-            };
-
-            return jobs;
+            _jobRepository = jobRepository;
         }
 
-        public JobResponseModel GetJobById(int id)
+        public async Task<List<JobResponseModel>> GetAllJobs()
         {
-            return new JobResponseModel { Id = 5, Title = "test for getjobbyid", Description = "This is test for getjobbyid Description." };
+           var jobs = await _jobRepository.GetAllJobs();
+           
+           var jobsResponseModel = new List<JobResponseModel>();
+           foreach (var job in jobs)
+                jobsResponseModel.Add(new JobResponseModel
+                {
+                    Id = job.Id,
+                    Description = job.Description,
+                    Title = job.Title,
+                    StartDate = job.StartDate.GetValueOrDefault(),
+                    NumberOfPositions = job.NumberOfPositions
+                });
+
+            return jobsResponseModel;
+        }
+
+        public async Task<JobResponseModel> GetJobById(int id)
+        {
+            var job = await _jobRepository.GetJobById(id);
+            var jobResponseModel = new JobResponseModel
+            {
+                Id = job.Id,
+                Title = job.Title,
+                StartDate = job.StartDate.GetValueOrDefault(),
+                Description = job.Description
+            };
+            return jobResponseModel;
         }
     }
 }

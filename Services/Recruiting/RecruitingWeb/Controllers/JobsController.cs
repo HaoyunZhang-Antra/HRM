@@ -14,22 +14,28 @@ namespace RecruitingWeb.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             // return all the jobs so that candidates can apply to the job
             // we need to get list of jobs
             // call the Job Service
-            var jobs = _jobService.GetAllJobs();
-            return View();
+
+            // 3 ways to send data from controller/action method to view
+            // 1. ViewBag
+            // 2. ViewData
+
+            // most prefered way 3. Strongly Typed Model data
+            var jobs = await _jobService.GetAllJobs();
+            return View(jobs);
         }
 
         [HttpGet]
         //get the job detailed information
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
             // get job by Id
-            var job = _jobService.GetJobById(3);
-            return View();
+            var job = await _jobService.GetJobById(id);
+            return View(job);
         }
 
         [HttpPost]
