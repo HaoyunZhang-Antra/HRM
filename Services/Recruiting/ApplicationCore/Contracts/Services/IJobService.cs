@@ -11,5 +11,6 @@ namespace ApplicationCore.Contracts.Services
     {
         Task<List<JobResponseModel>> GetAllJobs();
         Task<JobResponseModel> GetJobById(int id);
+        Task<int> AddJob(JobRequestModel model);
     }
 }

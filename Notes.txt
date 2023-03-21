@@ -51,3 +51,54 @@ data access code simpler and write less amount of code
  Step 11 : To Model your database with rules, constraints etc we cam do in two ways
             1. Data Annotations
             2. Fluent API 
+
+  asynchorous programming -> 2002
+  async/await -> 2012  older .net framework 4.5
+  
+  
+  
+  
+  T1
+   public async  Task< IActionResult> Index()
+          {
+             
+             var x = 10;
+             // database
+             // I/O bound -> go to this URL and fetch me some data/image network, file download
+             // database calls
+             // theradpool
+            
+             // waiting 
+             //  prevent Thread starvation
+              var jobs = await _jobService.GetAllJobs(); -> returning task
+              return View();
+              // therad starvation, scalability of our application
+          }
+
+To do validations we use Dataannotations
+
+IRepository<Candidate> -> BaseRepository<Candidate>
+
+Middleware ->  Request  that will request will go thru series of code and they will return back in reverse order
+
+
+R -> M1 (check the user is authenticated, check the http header and maybe read some http info)
+     M2 (some logic)
+     M3
+     
+ 
+Response
+ 
+ Built-in Middlewares
+ Custom middlewares
+ Register them in proper order
+ 
+ 
+ Home Page list all the Jobs -> foe each and every job you should give option (link) to see submissions for the job
+ 
+ Click on Job Title should go to Jobs/Details -> Apply button (POST) to Submissions table
+    Candidate FirstName, LastName, Email (show Job Code and Title)
+    When saving the submission check if the an submission already exists for that email
+ Create New Job button on Jobs list Page 
+    Create New Job should be using Validations and also should have dropdown (research) for JobStatus
+    Create New Job and Save to Database

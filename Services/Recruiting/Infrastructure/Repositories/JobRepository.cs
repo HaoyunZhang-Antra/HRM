@@ -10,12 +10,10 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {
-    public class JobRepository : IJobRepository
+    public class JobRepository: BaseRepository<Job>, IJobRepository
     {
-        private RecruitingDbContext _dbContext;
-        public JobRepository(RecruitingDbContext dbContext)
+        public JobRepository(RecruitingDbContext dbContext) : base(dbContext)
         {
-            _dbContext = dbContext;
         }
 
         public async Task<List<Job>> GetAllJobs()
