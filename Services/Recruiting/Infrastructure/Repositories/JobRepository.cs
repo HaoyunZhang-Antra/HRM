@@ -24,6 +24,12 @@ namespace Infrastructure.Repositories
             return jobs; 
         }
 
+        public async Task<List<JobStatusLookUp>> GetAllJobStatus()
+        {
+            var jobstatus = await _dbContext.JobStatusLookUps.ToListAsync();
+            return jobstatus;
+        }
+
         public async Task<Job> GetJobById(int id)
         {
             var job = await _dbContext.Jobs.FirstOrDefaultAsync(j => j.Id == id);

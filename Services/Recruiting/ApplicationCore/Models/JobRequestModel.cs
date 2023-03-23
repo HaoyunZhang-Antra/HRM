@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ApplicationCore.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -26,5 +28,11 @@ namespace ApplicationCore.Models
 
         [Required(ErrorMessage = "Please enter Job NumberOfPositions")]
         public int NumberOfPositions { get; set; }
+
+        // homework
+        [Required(ErrorMessage = "Please Choose JobStatusLookUp Id")]
+        public int JobStatusLookUpId { get; set; }
+        
+
     }
 }

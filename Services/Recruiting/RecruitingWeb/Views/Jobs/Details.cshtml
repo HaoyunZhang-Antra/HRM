@@ -40,6 +40,12 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NumberOfPositions)
         </dd>
+        <dt class="col-sm-2">
+            
+        </dt>
+        <dd class="col-sm-10">
+            <a asp-controller="Submissions" asp-action="Create" asp-route-id="@Model.Id">Apply</a>
+        </dd>
     </dl>
 </div>
 <div>

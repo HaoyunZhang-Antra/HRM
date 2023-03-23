@@ -2,6 +2,7 @@
 using ApplicationCore.Models;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace RecruitingWeb.Controllers
 {
@@ -43,8 +44,9 @@ namespace RecruitingWeb.Controllers
         [HttpGet]
         // Authenticated and User should have role for creating new job
         //HR / Manager
-        public IActionResult Create() 
+        public async Task<IActionResult> Create() 
         {
+            ViewBag.JobStatus = new SelectList(await _jobService.GetAllJobStatus(), "Id", "JobStatusCode");
             //take the information from the View and save to DB
             return View();
         }
@@ -53,6 +55,7 @@ namespace RecruitingWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(JobRequestModel model)
         {
+
             // check if the model is valid, on the server
             if (!ModelState.IsValid)
             {
@@ -63,5 +66,6 @@ namespace RecruitingWeb.Controllers
             await _jobService.AddJob(model);
             return RedirectToAction("Index");
         }
+
     }
 }

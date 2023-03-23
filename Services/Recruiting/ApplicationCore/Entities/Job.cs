@@ -31,5 +31,6 @@ namespace ApplicationCore.Entities
 
         // Navigation property in EF
         public JobStatusLookUp JobStatusLookUp { get; set; }
+
     }
 }

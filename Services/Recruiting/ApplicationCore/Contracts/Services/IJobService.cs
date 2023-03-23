@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Models;
+﻿using ApplicationCore.Entities;
+using ApplicationCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,6 @@ namespace ApplicationCore.Contracts.Services
         Task<List<JobResponseModel>> GetAllJobs();
         Task<JobResponseModel> GetJobById(int id);
         Task<int> AddJob(JobRequestModel model);
+        Task<List<JobStatusResponseModel>> GetAllJobStatus();
     }
 }
