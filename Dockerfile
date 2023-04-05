@@ -21,5 +21,6 @@ RUN dotnet publish "Recruiting.API.csproj" -c Release -o /app/publish -r linux-x
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENV MySQLConnectionString='Server=DESKTOP-H9GQUAK;Database=RecruitingDb;IntegratedSecurity=True;TrustServerCertificate=True;'
+ENV MySQLConnectionString='Server=tcp:zhyhrm.database.windows.net,1433;Initial Catalog=RecruitingDb;Persist Security Info=False;User ID=zhyadmin;Password=Zhy19990709!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
+#'Server=DESKTOP-H9GQUAK;Database=RecruitingDb;IntegratedSecurity=True;TrustServerCertificate=True;'
 ENTRYPOINT ["dotnet", "Recruiting.API.dll"]
